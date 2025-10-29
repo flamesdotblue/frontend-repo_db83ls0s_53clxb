@@ -1,28 +1,45 @@
-import { useState } from 'react'
+import Header from "./components/Header";
+import CalorieTracker from "./components/CalorieTracker";
+import WorkoutPlanner from "./components/WorkoutPlanner";
+import Progress from "./components/Progress";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      <Header />
 
-export default App
+      <main className="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        <section className="rounded-2xl bg-gradient-to-br from-orange-100 via-white to-emerald-100 border border-neutral-200 p-6">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div className="space-y-3">
+              <h2 className="text-2xl md:text-3xl font-semibold leading-tight">
+                Build habits that make weight loss sustainable
+              </h2>
+              <p className="text-neutral-600">
+                Track your calories and macros, plan effective workouts, and visualize your progress — all in one
+                simple dashboard.
+              </p>
+            </div>
+            <ul className="grid grid-cols-2 gap-3 text-sm text-neutral-700">
+              <li className="p-3 rounded-xl bg-white/70 border border-neutral-200">Smart calorie tracker</li>
+              <li className="p-3 rounded-xl bg-white/70 border border-neutral-200">Weekly workout planner</li>
+              <li className="p-3 rounded-xl bg-white/70 border border-neutral-200">Progress rings & log</li>
+              <li className="p-3 rounded-xl bg-white/70 border border-neutral-200">Actionable micro-tips</li>
+            </ul>
+          </div>
+        </section>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          <CalorieTracker />
+          <WorkoutPlanner />
+        </div>
+
+        <Progress />
+      </main>
+
+      <footer className="py-8 text-center text-sm text-neutral-500">
+        Built with intention. Stay consistent and kind to yourself.
+      </footer>
+    </div>
+  );
+}
